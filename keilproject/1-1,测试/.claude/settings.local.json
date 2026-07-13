@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command 'Get-CimInstance -Class Win32_LogicalDisk | Where-Object {$_.DriveType -eq 3} | Format-Table DeviceID, @{N=\"TotalGB\";E={[math]::Round\\($_.Size/1GB,1\\)}}, @{N=\"FreeGB\";E={[math]::Round\\($_.FreeSpace/1GB,1\\)}}, @{N=\"UsedGB\";E={[math]::Round\\(\\($_.Size-$_.FreeSpace\\)/1GB,1\\)}}')",
+      "Bash(powershell -Command 'Write-Host \"=== Temp 文件夹 ===\"; $temp = [System.IO.Path]::GetTempPath\\(\\); $tempSize = \\(Get-ChildItem -Path $temp -Recurse -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; Write-Host \"Temp: $\\([math]::Round\\($tempSize/1GB,2\\)\\) GB\"')",
+      "Bash(powershell -Command 'Write-Host \"=== 用户文件夹大目录 ===\"; Get-ChildItem -Path $env:USERPROFILE -Directory -ErrorAction SilentlyContinue | ForEach-Object { $size = \\(Get-ChildItem -Path $_.FullName -Recurse -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum\\).Sum; [PSCustomObject]@{Name=$_.Name; SizeGB=[math]::Round\\($size/1GB,2\\)} } | Sort-Object SizeGB -Descending | Format-Table -AutoSize')"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+C51 COMPILER V9.54   MAIN                                                                  03/31/2026 21:52:50 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\单片机\51单片机\klie5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <intrins.h>
+   3          void Delay1ms(unsigned int xms)   //@12.000MHz
+   4          {
+   5   1        unsigned char i, j;
+   6   1        while(xms)
+   7   1        {i = 2;
+   8   2        j = 239;
+   9   2        do
+  10   2        {
+  11   3        while (--j);
+  12   3        } while (--i);
+  13   2          xms--;}
+  14   1      }
+  15          
+  16          void main()
+  17          {while(1)
+  18   1      {P2=0xFE;//1111 1110
+  19   2       Delay1ms(100);
+  20   2       P2=0xFD;//1111 1101
+  21   2       Delay1ms(100);
+  22   2       P2=0xFB;//1111 1011
+  23   2       Delay1ms(100);
+  24   2       P2=0xF7;//1111 0111
+  25   2       Delay1ms(100);
+  26   2       P2=0xEF;//1110 1111
+  27   2       Delay1ms(100);
+  28   2       P2=0xDF;//1101 1111
+  29   2       Delay1ms(100);
+  30   2       P2=0xBF;//1011 1111
+  31   2       Delay1ms(100);
+  32   2       P2=0x7F;//0111 1111
+  33   2       Delay1ms(100);
+  34   2       }}
+  35          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     74    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

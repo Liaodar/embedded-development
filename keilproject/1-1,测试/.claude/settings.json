@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command 'Write-Host \"=== LocalAppData 大户 ===\"; Get-ChildItem \"$env:LOCALAPPDATA\" -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { $size = [math]::Round\\(\\(\\(Get-ChildItem $_.FullName -Recurse -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum\\).Sum\\)/1GB, 2\\); if \\($size -gt 0.5\\) { Write-Host \"  $\\($_.Name\\) : $size GB\" } } | Sort-Object')",
+      "Bash(powershell -Command 'Write-Host \"=== RoamingAppData 大户 ===\"; Get-ChildItem \"$env:APPDATA\" -Directory -Force -ErrorAction SilentlyContinue | ForEach-Object { $size = [math]::Round\\(\\(\\(Get-ChildItem $_.FullName -Recurse -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum\\).Sum\\)/1GB, 2\\); if \\($size -gt 0.5\\) { Write-Host \"  $\\($_.Name\\) : $size GB\" } }')",
+      "Bash(powershell -Command ' *)"
+    ]
+  }
+}
