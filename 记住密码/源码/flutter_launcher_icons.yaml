@@ -1,0 +1,5 @@
+flutter_launcher_icons:
+  android: true
+  image_path: ".claude/44ad5443e2b954714e16f543ae45052c.jpg"
+  adaptive_icon_background: "#4F46E5"
+  adaptive_icon_foreground: ".claude/44ad5443e2b954714e16f543ae45052c.jpg"
